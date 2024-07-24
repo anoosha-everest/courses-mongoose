@@ -92,21 +92,20 @@ router.get('/prereq/:id', async (req:any, res:any) => {
 });
 
 //get all courses which have to be taken after a given course id
-// router.get('/postcour/:id', async (req:any, res:any) => {
-//     try {
-//         const cour:any = (await Courses.find({}, 'preId').exec());
+router.get('/postcour/:id', async (req:any, res:any) => {
+    try {
+        const cour:any = await Courses.find({preId:req.params.id},{level:1,name:1});
+        if(cour){
+            res.json({ cour});
+        }
+        else{
+            res.status(404).json({ message: "No prerequisites" });
+        }
         
-//         if(cour){
-//             res.json({ cour});
-//         }
-//         else{
-//             res.status(404).json({ message: "No prerequisites" });
-//         }
-        
-//       } catch (err:any) {
-//         res.status(500).json({ message: err.message});
-//       }
-// });
+      } catch (err:any) {
+        res.status(500).json({ message: err.message});
+      }
+});
 
 
 export default router;
