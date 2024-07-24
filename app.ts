@@ -66,8 +66,8 @@ const connectToDatabase = async (): Promise<void> => {
   try {
     await mongoose.connect('mongodb://localhost:27017/courses');
     console.log('MongoDB connected successfully!');
-    await insertCourses();
-    console.log("Inserted courses");
+    // await insertCourses();
+    // console.log("Inserted courses");
 
 
     // const course=await Courses.find();
@@ -91,3 +91,4 @@ const connectToDatabase = async (): Promise<void> => {
 // Connect to database when the application starts
 connectToDatabase();
 
+//66a082faae68d0441aef345b

@@ -38,7 +38,7 @@ const courseSchema = new Schema({
     },
     preId:[{
         type: Schema.Types.ObjectId,
-        ref: 'Course', // Reference to the Course model itself for prerequisites
+        ref: 'Courses', 
         default:[]
     }]
    
